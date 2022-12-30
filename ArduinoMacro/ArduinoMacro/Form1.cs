@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using ArduinoMacro.Commands;
+using System.IO;
 
 namespace ArduinoMacro
 {
@@ -147,7 +148,6 @@ namespace ArduinoMacro
         private void button5_Click(object sender, EventArgs e)
         {
             // Debug button
-            
         }
 
         private void Log(object sender, EventArgs e)
@@ -157,13 +157,32 @@ namespace ArduinoMacro
             string log = string.Empty;
             if(Macro.Instance.logs.TryDequeue(out log))
             {
-                richTextBox1.Text += log + "\n";
+                LogTextBox.Text += log + "\n";
             }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Macro.Instance.Disconnect();
+        }
+
+        private void button6_Click(object sender, EventArgs e) // Save
+        {
+            string path = Directory.GetCurrentDirectory() + "\\" + "macro.json";
+            Macro.Instance.Save(path);
+        }
+
+        private void button7_Click(object sender, EventArgs e) // Load
+        {
+            string path = Directory.GetCurrentDirectory() + "\\" + "macro.json";
+            Macro.Instance.Load(path);
+
+            listBox2.Items.Clear();
+            foreach (var item in Macro.Instance.Commands)
+            {
+                listBox2.Items.Add(item);
+            }
+            
         }
     }
 }

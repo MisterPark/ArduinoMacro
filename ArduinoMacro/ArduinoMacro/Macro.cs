@@ -10,6 +10,8 @@ using System.Threading;
 using System.ComponentModel;
 using System.Collections.Concurrent;
 using System.Diagnostics.Eventing.Reader;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace ArduinoMacro
 {
@@ -171,6 +173,39 @@ namespace ArduinoMacro
         public void RemoveCommand(int inedx)
         {
             commands.RemoveAt(inedx);
+        }
+
+        public void Save(string path)
+        {
+            MacroData data = new MacroData();
+            int count = commands.Count;
+            for (int i = 0; i < count; i++)
+            {
+                data.datas.Add(new CommandData(commands[i]));
+            }
+
+            string json = JsonConvert.SerializeObject(data);
+
+            File.WriteAllText(path, json);
+        }
+
+        public void Load(string path) 
+        {
+            string json = File.ReadAllText(path);
+            MacroData data = JsonConvert.DeserializeObject<MacroData>(json);
+            if(data == null)
+            {
+                MessageBox.Show("매크로 데이터 불러오기 실패.");
+                return;
+            }
+
+            commands.Clear();
+            int count = data.datas.Count;
+            for (int i = 0; i < count; i++)
+            {
+                var command = data.datas[i].ToCommand();
+                commands.Add(command);
+            }
         }
     }
 }
