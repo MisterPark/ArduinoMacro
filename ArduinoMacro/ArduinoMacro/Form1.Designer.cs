@@ -53,17 +53,31 @@
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.valueTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.scanTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.valueTextBox = new System.Windows.Forms.TextBox();
+            this.hexCheckBox = new System.Windows.Forms.CheckBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.scanListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.processNameLabel = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             this.bottomTabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // LogTextBox
@@ -107,31 +121,31 @@
             this.새로만들기ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.새로만들기ToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
             this.새로만들기ToolStripMenuItem.Name = "새로만들기ToolStripMenuItem";
-            this.새로만들기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.새로만들기ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.새로만들기ToolStripMenuItem.Text = "새로 만들기";
             // 
             // 열기ToolStripMenuItem
             // 
             this.열기ToolStripMenuItem.Name = "열기ToolStripMenuItem";
-            this.열기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.열기ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.열기ToolStripMenuItem.Text = "열기";
             // 
             // 저장ToolStripMenuItem
             // 
             this.저장ToolStripMenuItem.Name = "저장ToolStripMenuItem";
-            this.저장ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.저장ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.저장ToolStripMenuItem.Text = "저장";
             // 
             // 다른이름으로저장ToolStripMenuItem
             // 
             this.다른이름으로저장ToolStripMenuItem.Name = "다른이름으로저장ToolStripMenuItem";
-            this.다른이름으로저장ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.다른이름으로저장ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.다른이름으로저장ToolStripMenuItem.Text = "다른 이름으로 저장";
             // 
             // 끝내기ToolStripMenuItem
             // 
             this.끝내기ToolStripMenuItem.Name = "끝내기ToolStripMenuItem";
-            this.끝내기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.끝내기ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.끝내기ToolStripMenuItem.Text = "끝내기";
             // 
             // bottomTabControl
@@ -305,6 +319,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(5, 7);
             this.comboBox1.Name = "comboBox1";
@@ -315,8 +330,18 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.tabPage2.Controls.Add(this.valueTypeComboBox);
+            this.tabPage2.Controls.Add(this.scanTypeComboBox);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.valueTextBox);
+            this.tabPage2.Controls.Add(this.hexCheckBox);
+            this.tabPage2.Controls.Add(this.button10);
+            this.tabPage2.Controls.Add(this.button9);
             this.tabPage2.Controls.Add(this.splitter2);
-            this.tabPage2.Controls.Add(this.listView1);
+            this.tabPage2.Controls.Add(this.scanListView);
+            this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -324,20 +349,116 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "메모리 핵";
             // 
-            // listView1
+            // valueTypeComboBox
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.valueTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.valueTypeComboBox.FormattingEnabled = true;
+            this.valueTypeComboBox.Location = new System.Drawing.Point(443, 146);
+            this.valueTypeComboBox.Name = "valueTypeComboBox";
+            this.valueTypeComboBox.Size = new System.Drawing.Size(121, 20);
+            this.valueTypeComboBox.TabIndex = 12;
+            // 
+            // scanTypeComboBox
+            // 
+            this.scanTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.scanTypeComboBox.FormattingEnabled = true;
+            this.scanTypeComboBox.Location = new System.Drawing.Point(443, 120);
+            this.scanTypeComboBox.Name = "scanTypeComboBox";
+            this.scanTypeComboBox.Size = new System.Drawing.Size(121, 20);
+            this.scanTypeComboBox.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(384, 149);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "값 타입: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(372, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "스캔 타입: ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(433, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(25, 12);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "값 :";
+            // 
+            // valueTextBox
+            // 
+            this.valueTextBox.Location = new System.Drawing.Point(464, 93);
+            this.valueTextBox.MaxLength = 20;
+            this.valueTextBox.Name = "valueTextBox";
+            this.valueTextBox.Size = new System.Drawing.Size(100, 21);
+            this.valueTextBox.TabIndex = 7;
+            // 
+            // hexCheckBox
+            // 
+            this.hexCheckBox.AutoSize = true;
+            this.hexCheckBox.Location = new System.Drawing.Point(371, 98);
+            this.hexCheckBox.Name = "hexCheckBox";
+            this.hexCheckBox.Size = new System.Drawing.Size(56, 16);
+            this.hexCheckBox.TabIndex = 6;
+            this.hexCheckBox.Text = "Hex |";
+            this.hexCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button10.Location = new System.Drawing.Point(452, 64);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 5;
+            this.button10.Text = "다음 스캔";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button9
+            // 
+            this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button9.Location = new System.Drawing.Point(371, 64);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 4;
+            this.button9.Text = "전체 스캔";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // splitter2
+            // 
+            this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.splitter2.Location = new System.Drawing.Point(360, 58);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(5, 377);
+            this.splitter2.TabIndex = 3;
+            this.splitter2.TabStop = false;
+            // 
+            // scanListView
+            // 
+            this.scanListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.scanListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(357, 432);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.scanListView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.scanListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.scanListView.HideSelection = false;
+            this.scanListView.Location = new System.Drawing.Point(3, 58);
+            this.scanListView.Name = "scanListView";
+            this.scanListView.Size = new System.Drawing.Size(357, 377);
+            this.scanListView.TabIndex = 2;
+            this.scanListView.UseCompatibleStateImageBehavior = false;
+            this.scanListView.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -354,14 +475,44 @@
             this.columnHeader3.Text = "이전 값";
             this.columnHeader3.Width = 100;
             // 
-            // splitter2
+            // panel1
             // 
-            this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.splitter2.Location = new System.Drawing.Point(360, 3);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(5, 432);
-            this.splitter2.TabIndex = 1;
-            this.splitter2.TabStop = false;
+            this.panel1.Controls.Add(this.progressBar1);
+            this.panel1.Controls.Add(this.processNameLabel);
+            this.panel1.Controls.Add(this.button8);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(674, 55);
+            this.panel1.TabIndex = 0;
+            // 
+            // processNameLabel
+            // 
+            this.processNameLabel.AutoSize = true;
+            this.processNameLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.processNameLabel.Location = new System.Drawing.Point(112, 6);
+            this.processNameLabel.Name = "processNameLabel";
+            this.processNameLabel.Size = new System.Drawing.Size(109, 20);
+            this.processNameLabel.TabIndex = 1;
+            this.processNameLabel.Text = "Process Name";
+            // 
+            // button8
+            // 
+            this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button8.Location = new System.Drawing.Point(5, 3);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(101, 23);
+            this.button8.TabIndex = 0;
+            this.button8.Text = "프로세스 선택";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(368, 6);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(300, 23);
+            this.progressBar1.TabIndex = 2;
             // 
             // Form1
             // 
@@ -386,6 +537,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,11 +571,24 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.ListView scanListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label processNameLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox valueTextBox;
+        private System.Windows.Forms.CheckBox hexCheckBox;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.ComboBox valueTypeComboBox;
+        private System.Windows.Forms.ComboBox scanTypeComboBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
