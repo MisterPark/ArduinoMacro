@@ -31,6 +31,7 @@ namespace ArduinoMacro
         Byte8,
         Float,
         Double,
+        String,
         End,
     }
 

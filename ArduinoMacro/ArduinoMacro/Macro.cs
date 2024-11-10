@@ -12,6 +12,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace ArduinoMacro
 {
@@ -21,6 +22,13 @@ namespace ArduinoMacro
         private static Macro instance = new Macro();
 
         public static Macro Instance { get { return instance; } }
+
+        [DllImport("user32.dll")]
+        public static extern void keybd_event(byte vk, byte scan, int flags, ref int extrainfo);
+
+        const byte VK_LBUTTON = 0x01;
+        const int KEYUP = 0x0002;
+        int Info = 0;
 
         private SerialPort serialPort = new SerialPort();
 
@@ -112,6 +120,18 @@ namespace ArduinoMacro
             buffer.Write((byte)key);
 
             serialPort.Write(buffer.Buffer, buffer.Offset, buffer.Count);
+        }
+
+        public void KeyDownVirtual(byte virtualKey)
+        {
+            int info = 0;
+            keybd_event(virtualKey, 0, 0, ref info);
+        }
+
+        public void KeyUpVirtual(byte virtualKey)
+        {
+            int info = 0;
+            keybd_event(virtualKey, 0, KEYUP, ref info);
         }
 
         private static void Execute()

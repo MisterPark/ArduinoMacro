@@ -56,6 +56,8 @@
     <Compile Include="Commands\KeyPressCommand.cs" />
     <Compile Include="Commands\MacroCommand.cs" />
     <Compile Include="Commands\MacroCommandArgs.cs" />
+    <Compile Include="Commands\VirtualKeyDownCommand.cs" />
+    <Compile Include="Commands\VirtualKeyUpCommand.cs" />
     <Compile Include="DelayForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -22,6 +22,7 @@ namespace ArduinoMacro
                 case VariableType.Byte8: return 8;
                 case VariableType.Float: return 4;
                 case VariableType.Double: return 8;
+                case VariableType.String: return 0;
                 case VariableType.End: return 4;
                 default: return 4;
             }
@@ -94,23 +95,32 @@ namespace ArduinoMacro
                         return true;
                     }
                     break;
-                case VariableType.End:
                 case VariableType.Default:
                 case VariableType.Byte4:
-                default:
-                    if (uint.TryParse(str, out uint result))
+					if (uint.TryParse(str, out uint result))
+					{
+						type = typeof(uint);
+						value = result;
+						return true;
+					}
+					if (int.TryParse(str, out int result2))
+					{
+						type = typeof(int);
+						value = result2;
+						return true;
+					}
+					break;
+                case VariableType.String:
                     {
-                        type = typeof(uint);
-                        value = result;
+                        type = typeof(string);
+                        value = str;
                         return true;
                     }
-                    if (int.TryParse(str, out int result2))
-                    {
-                        type = typeof(int);
-                        value = result2;
-                        return true;
-                    }
+
+                case VariableType.End:
+				default:
                     break;
+                    
             }
 
             return false;
@@ -168,6 +178,11 @@ namespace ArduinoMacro
             {
                 double origin = (double)self;
                 return BitConverter.GetBytes(origin);
+            }
+            else if (type == typeof(string))
+            {
+                 string origin = (string)self;
+                return Encoding.UTF8.GetBytes(origin);
             }
 
             return null;
